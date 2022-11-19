@@ -12,8 +12,9 @@ module.exports = {
   rules: {
     // Rules override
     "prettier/prettier": ["error", { printWidth: 100, useTabs: false }],
+    "unicorn/prefer-module": "off",
     // Write good comments rules
-    "write-good-comments/write-good-comments": "warn"
+    "write-good-comments/write-good-comments": "warn",
   },
   overrides: [
     {
@@ -22,7 +23,7 @@ module.exports = {
       extends: [
         "plugin:jest/recommended",
         "plugin:jest/style",
-        "plugin:jest-formatting/recommended"
+        "plugin:jest-formatting/recommended",
       ],
     },
   ],
