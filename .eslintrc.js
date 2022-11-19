@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    "jest/globals": true,
   },
   parserOptions: {
     ecmaVersion: "latest",
@@ -16,15 +17,23 @@ module.exports = {
     // Write good comments rules
     "write-good-comments/write-good-comments": "warn",
   },
+  ignorePatterns: ["coverage/*"],
   overrides: [
     {
-      plugins: ["jest-formatting"],
-      files: ["tests/*.spec.js"],
+      plugins: ["jest", "jest-formatting"],
+      files: ["tests/*.spec.js", "tests/*.test.js", "tests/*.mock.js"],
       extends: [
         "plugin:jest/recommended",
         "plugin:jest/style",
         "plugin:jest-formatting/recommended",
       ],
+    },
+    {
+      files: ["jest.config.js"],
+      rules: {
+        // Write good comments rules
+        "write-good-comments/write-good-comments": "off",
+      },
     },
   ],
 };
